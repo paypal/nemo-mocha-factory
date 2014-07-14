@@ -39,3 +39,10 @@ describe('nemo-user @loginSuite@loginFactory@ci-group2@', function () {
 	});
 });
 ```
+
+### API
+
+nemoFactory accepts a JSON argument, with the following possible top-level objects
+* plugins: JSON object representing any desired plugin setup. Please see: https://github.com/paypal/nemo-docs/blob/master/plugins.md
+* setup: JSON object to pass to the Nemo.setup routine. Please see: https://github.com/paypal/nemo#nemosetup
+* context: a local namespace to hang the nemo properties from. If this is not included, nemo will be registered to the global namespace
