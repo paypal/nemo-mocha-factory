@@ -1,6 +1,6 @@
 {
   "name": "nemo-mocha-factory",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Mocha before/after functions for putting nemo into the global namespace",
   "main": "index.js",
   "scripts": {
@@ -18,10 +18,12 @@
     "Automation"
   ],
   "author": "Matt Edelman",
-  "licenses": [{
-    "type": "Apache 2.0",
-    "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-  }],
+  "licenses": [
+    {
+      "type": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  ],
   "dependencies": {
     "lodash": "^2.4.0"
   },
