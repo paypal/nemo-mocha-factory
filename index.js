@@ -42,6 +42,8 @@ module.exports = function (config) {
 	after(function (done) {
 		_nemo.driver.quit().then(function () {
 			done();
+		}, function (err) {
+			done(err);
 		});
 	});
 };
