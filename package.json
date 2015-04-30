@@ -1,6 +1,6 @@
 {
   "name": "nemo-mocha-factory",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "description": "Mocha before/after functions for putting nemo into the global namespace",
   "main": "index.js",
   "scripts": {
