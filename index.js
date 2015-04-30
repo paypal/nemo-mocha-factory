@@ -14,36 +14,25 @@
 \*───────────────────────────────────────────────────────────────────────────*/
 /*global before:true, after:true */
 'use strict';
-var Nemo = require('nemo'),
-	_ = require("lodash"),
-	_nemo;
+var Nemo = require('nemo');
+var _ = require("lodash");
+var _nemo = {};
 
-module.exports = function (config) {
-	config = config || {};
-	var context = config.context || global;
-
-	before(function (done) {
-		(new Nemo(config.plugins || null)).setup(config.setup || {}).
-			then(function (result) {
-				if (context === global) {
-					context.nemo = result;
-					_nemo = context.nemo;
+module.exports = function(config) {
+	before(function(done) {
+		var _n = Nemo(config,
+			function(err) {
+				//always check for errors!
+				if (!!err) {
+					console.log('Error during Nemo setup:\n', JSON.stringify(err, null, 4));
 				}
-				else {
-					_.merge(context, result);
-					_nemo = context;
-				}
-				done();
-			}, function (err) {
-				done(err);
+				_.merge(_nemo, _n);
+				return done();
 			});
 	});
-
-	after(function (done) {
-		_nemo.driver.quit().then(function () {
-			done();
-		}, function (err) {
-			done(err);
-		});
+	after(function(done) {
+		_nemo.driver.quit();
+		return done()
 	});
+	return _nemo;
 };
